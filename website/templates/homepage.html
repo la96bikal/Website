@@ -1,0 +1,96 @@
+<html>
+<head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+</style>
+	</head>
+<body >
+<h1 style="color:#0000ff ;text-align:center">This is a website</h1>
+
+
+<form action = "other_page" method = 'POST'>
+	{% csrf_token %}
+
+<div>
+First name <br>
+
+
+<input type = "text" name = "FName">
+
+Last Name <br>
+<input type = "text" name = "LName">
+
+<input type = "submit" value = "Submit">
+</form>
+
+
+
+</div>
+
+<button class = "button"> Press me </button>
+<div id="div1" > This is a region</div>
+<div id="div2" > This is the second region</div><br>
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.post("ajax_processor",
+    {
+      data : 5
+    },
+   	function(obj){
+      	$("#div1").fadeOut();
+      	$("#div2").fadeOut(3000);
+
+
+    });
+  });
+});
+</script>
+
+</body>	
+</html>
